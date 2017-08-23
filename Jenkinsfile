@@ -12,7 +12,7 @@ node {
     //println "after pwd"
  
     sh 'git fetch'
-    def x = sh(script: 'git branch -a --list "*"', returnStdout: true)
+    def x = sh(script: 'git ls-remote', returnStdout: true)
     println x
     def branchCmd = "git branch -a --list '*'"
     def proc = branchCmd.execute()
