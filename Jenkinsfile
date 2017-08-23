@@ -12,7 +12,7 @@ node {
     //println "after pwd"
  
     sh 'git fetch'
-    def branches = sh(script: 'git ls-remote -q', returnStdout: true).split('\n')
+    def branches = sh(script: 'git ls-remote -q', returnStdout: true).split('\r?\n')
     println branches
 	
     branches.eachLine { line, count -> 
