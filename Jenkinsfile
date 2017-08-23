@@ -11,6 +11,7 @@ node {
     //p/rintln "out> $sout err> $serr"
     //println "after pwd"
  
+    sh 'git fetch'
     def x = sh(script: 'git branch -a --list "*"', returnStdout: true)
     println x
     def branchCmd = "git branch -a --list '*'"
