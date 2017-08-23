@@ -1,6 +1,6 @@
 {
   "name": "potential-octo-waffle",
-  "version": "1.0.1",
+  "version": "1.0.1-develop",
   "description": "",
   "main": "index.js",
   "scripts": {
