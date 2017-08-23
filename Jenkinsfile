@@ -7,7 +7,7 @@ node {
     }
 
     stage('Build image') {
-        sh 'printenv'
+        //sh 'printenv'
 	sh 'build image'
         /*app = docker.build("empower/empower-api")*/
     }
