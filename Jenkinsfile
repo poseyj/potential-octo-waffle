@@ -10,7 +10,9 @@ node {
     //proc1.waitFor()
     //p/rintln "out> $sout err> $serr"
     //println "after pwd"
-	
+ 
+    def x = sh(script: 'git branch -a --list "*"', returnStdout: true)
+    println x
     def branchCmd = "git branch -a --list '*'"
     def proc = branchCmd.execute()
     proc.waitFor() 
