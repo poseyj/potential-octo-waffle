@@ -15,4 +15,5 @@ COPY . /usr/src/app
 
 EXPOSE 3000
 
-CMD ["dumb-init", "node", "index.js"]
+RUN npm test
+#CMD ["dumb-init", "node", "index.js"]
