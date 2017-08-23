@@ -4,7 +4,8 @@ node {
     //sh 'ls -als'
     //sh 'git status'
     echo sh(returnStdout: true, script: 'env')
- 
+    sh 'docker -v'
+	
     // determine next build number
     def major = 0
     def minor = 0
