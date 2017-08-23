@@ -3,12 +3,13 @@ node {
     
     sh 'ls -als'
     sh 'git status'
-    def pwdCmd = "pwd"
-    def proc1 = pwdCmd.execute()
-    proc1.consumeProcessOutput(sout, serr)	
-    proc1.waitFor()
-    println "out> $sout err> $serr"
-    println "after pwd"
+    echo sh(returnStdout: true, script: 'env')
+    //def pwdCmd = "pwd"
+    //def proc1 = pwdCmd.execute()
+    //proc1.consumeProcessOutput(sout, serr)	
+    //proc1.waitFor()
+    //p/rintln "out> $sout err> $serr"
+    //println "after pwd"
 	
     def branchCmd = "git branch -a --list '*'"
     def proc = branchCmd.execute()
