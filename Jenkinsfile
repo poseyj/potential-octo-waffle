@@ -1,7 +1,12 @@
 node {
     def app
     
-    def branches = git branch -a --list "*"
+    def branchCmd = "git branch -a --list '*'"
+    def proc = branchCmd.execute()
+    proc.waitFor() 
+    def branches = proc.in.text.readLines().collect { 
+    	it.replaceAll(/[a-z0-9]*\trefs\/heads\//, '') 
+    }	
     println branches
 	
     stage('Clone repository') {
