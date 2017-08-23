@@ -16,8 +16,8 @@ node {
     println branches
     println branches[1]
 	
-    branches.eachLine { line, count -> 
-      println "line $count: $line"
+    branches.each { 
+	    println "line ${it}"
     }		
     println branches
 	
