@@ -9,7 +9,7 @@ node {
     stage('Build image') {
         //sh 'printenv'
 	echo 'build image'
-        /*app = docker.build("empower/empower-api")*/
+        app = docker.build("empower/test-build")
     }
 
     stage('Test image') {
