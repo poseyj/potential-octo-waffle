@@ -44,9 +44,9 @@ node {
     }
 
     stage('Test image') {
-        //app.inside {
-            sh 'echo "Run tests..."'
-        //}
+        app.inside {
+          sh 'npm test'
+        }
     }
 
     if(env.BRANCH_NAME == 'develop') {
