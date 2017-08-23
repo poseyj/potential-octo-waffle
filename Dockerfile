@@ -1,4 +1,4 @@
-FROM node:6.11.1
+FROM node:6.11.1 AS base
 
 ADD https://github.com/Yelp/dumb-init/releases/download/v1.1.1/dumb-init_1.1.1_amd64 /usr/local/bin/dumb-init
 RUN chmod +x /usr/local/bin/dumb-init
