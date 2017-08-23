@@ -12,15 +12,9 @@ node {
     //println "after pwd"
  
     sh 'git fetch'
-    def x = sh(script: 'git ls-remote -q', returnStdout: true)
-    println x
-    def branchCmd = "git branch -a --list '*'"
-    def proc = branchCmd.execute()
-    proc.waitFor() 
-    if ( proc.exitValue() != 0 ) {
-      println "Error, ${proc.err.text}"
-      System.exit(-1)
-    }
+    def branches = sh(script: 'git ls-remote -q', returnStdout: true)
+    println branches
+	
     //def branches = proc.in.text.readLines().collect { 
     //	it.replaceAll(/[a-z0-9]*\trefs\/heads\//, '') 
     //}	
