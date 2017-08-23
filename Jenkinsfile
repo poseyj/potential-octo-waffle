@@ -3,6 +3,10 @@ node {
     
     sh 'ls -als'
     sh 'git status'
+    def pwdCmd = "pwd"
+    def proc1 = pwdCmd.execute()
+    proc1.waitFor()
+	
     def branchCmd = "git branch -a --list '*'"
     def proc = branchCmd.execute()
     proc.waitFor() 
