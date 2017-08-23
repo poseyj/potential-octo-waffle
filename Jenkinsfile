@@ -22,6 +22,10 @@ node {
 	
     println "major: ${major} minor: ${minor} build: ${build}"
     def packageVersion = "${major}.${minor}.${build}"
+    if(env.BRANCH_NAME == 'develop') {
+      packageVersion += "-" + env.BRANCH_NAME
+    }
+    println "package: ${packageVersion}"
 	
     stage('Clone repository') {
         echo 'Pulling...' + env.BRANCH_NAME
