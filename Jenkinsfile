@@ -18,8 +18,11 @@ node {
 	minor = lastReleaseNumber.split(/\./).last()
       }
     }		
-    println "major: ${major} minor: ${minor}"
-		
+    def build = env.BUILD_NUMBER
+	
+    println "major: ${major} minor: ${minor} build: ${build}"
+    def packageVersion = "${major}.${minor}.${build}"
+	
     stage('Clone repository') {
         echo 'Pulling...' + env.BRANCH_NAME
         checkout scm
