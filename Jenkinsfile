@@ -12,6 +12,7 @@ node {
     def branches = sh(script: 'git branch -a --list "*/release/*"', returnStdout: true).split('\r?\n')
     println branches
     branches.each { 
+      println "line ${it}"
       if(it =~ /release/) {
         println "line ${it}"
 	def lastReleaseNumber = it.split('/').last()
@@ -20,6 +21,7 @@ node {
 	minor = lastReleaseNumber.split(/\./).last() as Integer
       }
     }		
+    println "after iterator"
     minor = minor + 1
     def build = env.BUILD_NUMBER
 	
