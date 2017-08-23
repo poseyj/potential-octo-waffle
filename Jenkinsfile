@@ -1,31 +1,19 @@
 node {
     def app
     
-    sh 'ls -als'
-    sh 'git status'
-    echo sh(returnStdout: true, script: 'env')
-    //def pwdCmd = "pwd"
-    //def proc1 = pwdCmd.execute()
-    //proc1.consumeProcessOutput(sout, serr)	
-    //proc1.waitFor()
-    //p/rintln "out> $sout err> $serr"
-    //println "after pwd"
+    //sh 'ls -als'
+    //sh 'git status'
+    //echo sh(returnStdout: true, script: 'env')
  
-    sh 'git fetch'
-    def branches = sh(script: 'git ls-remote -q', returnStdout: true).split('\r?\n')
-    println branches
-    println branches[1]
-	
+    //sh 'git fetch'
+    def branches = sh(script: 'git ls-remote -q', returnStdout: true).split('\r?\n')	
     branches.each { 
-	    println "line ${it}"
+      if(${it} ==~ /release/) {
+        println "line ${it}"
+      }
     }		
     println branches
-	
-    //def branches = proc.in.text.readLines().collect { 
-    //	it.replaceAll(/[a-z0-9]*\trefs\/heads\//, '') 
-    //}	
-    //println branches
-	
+		
     stage('Clone repository') {
         echo 'Pulling...' + env.BRANCH_NAME
         checkout scm
