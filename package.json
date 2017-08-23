@@ -1,0 +1,29 @@
+{
+  "name": "potential-octo-waffle",
+  "version": "1.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha lib/**/**.spec.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/poseyj/potential-octo-waffle.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/poseyj/potential-octo-waffle/issues"
+  },
+  "homepage": "https://github.com/poseyj/potential-octo-waffle#readme",
+  "devDependencies": {
+    "chai": "^4.1.1",
+    "mocha": "^3.5.0"
+  },
+  "dependencies": {
+    "express": "^4.15.4",
+    "http": "0.0.0",
+    "ip": "^1.1.5",
+    "os": "^0.1.1"
+  }
+}
