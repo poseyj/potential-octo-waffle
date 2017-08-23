@@ -14,7 +14,7 @@ node {
         println "line ${it}"
 	def lastReleaseNumber = it.split('/').last()
 	println "last release #: ${lastReleaseNumber}"
-	major = lastReleaseNumber.split('.').first()
+	major = lastReleaseNumber.split('.')[0]
 	minor = lastReleaseNumber.split('.').last()
       }
     }		
