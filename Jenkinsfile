@@ -49,9 +49,10 @@ node {
     }
 
     stage('Test image') {
-        app.inside {
-          sh 'npm test'
-        }
+	sh "docker run empower/test-build"
+        //app.inside {
+        //  sh 'npm test'
+        //}
     }
 
     if(env.BRANCH_NAME == 'develop') {
