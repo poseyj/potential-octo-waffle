@@ -11,7 +11,7 @@ node {
     branches.each { 
       if(it =~ /release/) {
         println "line ${it}"
-	it.split('/').last()
+	last = it.split('/').last()
 	println "last release #: ${last}"
       }
     }		
