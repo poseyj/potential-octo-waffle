@@ -1,6 +1,9 @@
 node {
     def app
-
+    
+    def branches = git branch -a --list "*"
+    println branches
+	
     stage('Clone repository') {
         echo 'Pulling...' + env.BRANCH_NAME
         checkout scm
