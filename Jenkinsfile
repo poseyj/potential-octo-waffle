@@ -4,10 +4,14 @@ node {
     def branchCmd = "git branch -a --list '*'"
     def proc = branchCmd.execute()
     proc.waitFor() 
-    def branches = proc.in.text.readLines().collect { 
-    	it.replaceAll(/[a-z0-9]*\trefs\/heads\//, '') 
-    }	
-    println branches
+    if ( proc.exitValue() != 0 ) {
+      println "Error, ${proc.err.text}"
+      System.exit(-1)
+    }
+    //def branches = proc.in.text.readLines().collect { 
+    //	it.replaceAll(/[a-z0-9]*\trefs\/heads\//, '') 
+    //}	
+    //println branches
 	
     stage('Clone repository') {
         echo 'Pulling...' + env.BRANCH_NAME
