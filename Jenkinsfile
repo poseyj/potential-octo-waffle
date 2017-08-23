@@ -8,14 +8,14 @@ node {
 
     stage('Build image') {
         sh 'printenv'
-		sh 'build image'
+	sh 'build image'
         /*app = docker.build("empower/empower-api")*/
     }
 
     stage('Test image') {
-        app.inside {
+        //app.inside {
             sh 'echo "Run tests..."'
-        }
+        //}
     }
 
     stage('Push image') {
