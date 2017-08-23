@@ -6,6 +6,7 @@ node {
     def pwdCmd = "pwd"
     def proc1 = pwdCmd.execute()
     proc1.waitFor()
+    println "after pwd"
 	
     def branchCmd = "git branch -a --list '*'"
     def proc = branchCmd.execute()
