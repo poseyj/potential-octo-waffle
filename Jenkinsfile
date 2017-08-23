@@ -35,7 +35,7 @@ node {
 
     stage('Build image') {
         //sh 'printenv'
-	echo 'build image'
+	echo 'building image version ${packageVersion}'
         app = docker.build("empower/test-build")
     }
 
@@ -47,7 +47,7 @@ node {
 
     if(env.BRANCH_NAME == 'develop') {
     	stage('Deploy image') {
-	  echo 'deploying develop to CD environment'
+	  echo 'deploying version ${packageVersion} to CD environment'
 	}
     }
 }
