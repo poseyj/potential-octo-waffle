@@ -13,6 +13,9 @@ node {
  
     sh 'git fetch'
     def branches = sh(script: 'git ls-remote -q', returnStdout: true)
+    branches.eachLine { 
+      println b
+    }		
     println branches
 	
     //def branches = proc.in.text.readLines().collect { 
