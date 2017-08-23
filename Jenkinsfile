@@ -3,19 +3,22 @@ node {
     
     //sh 'ls -als'
     //sh 'git status'
-    //echo sh(returnStdout: true, script: 'env')
+    echo sh(returnStdout: true, script: 'env')
  
-    //sh 'git fetch'
+    // determine next build number
+    def major
+    def minor
     def branches = sh(script: 'git ls-remote -q', returnStdout: true).split('\r?\n')	
-    def last
     branches.each { 
       if(it =~ /release/) {
         println "line ${it}"
-	last = it.split('/').last()
-	println "last release #: ${last}"
+	def lastReleaseNumber = it.split('/').last()
+	println "last release #: ${lastReleaseNumber}"
+	major = lastReleaseNumber.split('.').first()
+	minor = lastReleaseNumber.split('.').last()
       }
     }		
-    println branches
+    println "major: ${major} minor: ${minor}"
 		
     stage('Clone repository') {
         echo 'Pulling...' + env.BRANCH_NAME
