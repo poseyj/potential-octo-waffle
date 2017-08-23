@@ -49,7 +49,8 @@ node {
     }
 
     stage('Test image') {
-	sh "docker run empower/test-build"
+	def result = sh "docker run empower/test-build"
+	println result
         //app.inside {
         //  sh 'npm test'
         //}
