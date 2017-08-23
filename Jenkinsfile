@@ -18,6 +18,7 @@ node {
 	minor = lastReleaseNumber.split(/\./).last()
       }
     }		
+    minor = minor + 1
     def build = env.BUILD_NUMBER
 	
     println "major: ${major} minor: ${minor} build: ${build}"
