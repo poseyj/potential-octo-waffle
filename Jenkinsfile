@@ -49,9 +49,9 @@ node {
     }
 
     stage('Test image') {
-        //app.inside {
-        //  sh 'npm test'
-       // }
+        app.inside {
+          sh 'npm test'
+        }
     }
 
     if(env.BRANCH_NAME == 'develop') {
