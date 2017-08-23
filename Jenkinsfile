@@ -14,6 +14,7 @@ node {
     sh 'git fetch'
     def branches = sh(script: 'git ls-remote -q', returnStdout: true).split('\r?\n')
     println branches
+    println branches[1]
 	
     branches.eachLine { line, count -> 
       println "line $count: $line"
