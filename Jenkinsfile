@@ -18,7 +18,9 @@ node {
         //}
     }
 
-    stage('Push image') {
-	sh 'echo push image'
+    if(env.BRANCH_NAME == 'develop') {
+    	stage('Deploy image') {
+	  echo 'deploying develop to CD environment'
+	}
     }
 }
