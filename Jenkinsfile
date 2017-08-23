@@ -2,6 +2,7 @@ node {
     def app
     
     sh 'ls -als'
+    sh 'git status'
     def branchCmd = "git branch -a --list '*'"
     def proc = branchCmd.execute()
     proc.waitFor() 
