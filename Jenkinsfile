@@ -8,9 +8,8 @@ node {
     // determine next build number
     def major
     def minor
-    //def branches = sh(script: 'git ls-remote -q', returnStdout: true).split('\r?\n')	
-    sh 'git fetch'
-    def branches = sh(script: 'git branch -a --list "*/release/*"', returnStdout: true).split('\r?\n')
+    def branches = sh(script: 'git ls-remote -q', returnStdout: true).split('\r?\n')	
+    //def branches = sh(script: 'git branch -a --list "*/release/*"', returnStdout: true).split('\r?\n')
     println branches
     branches.each { 
       println "line ${it}"
