@@ -8,7 +8,7 @@ node {
     //sh 'git fetch'
     def branches = sh(script: 'git ls-remote -q', returnStdout: true).split('\r?\n')	
     branches.each { 
-      if(it ==~ /release/) {
+      if(it =~ /release/) {
         println "line ${it}"
       }
     }		
