@@ -7,18 +7,20 @@ node {
     }
 
     stage('Build image') {
-        sh 'printenv'
-		sh 'build image'
-        /*app = docker.build("empower/empower-api")*/
+        //sh 'printenv'
+	echo 'build image'
+        app = docker.build("empower/test-build")
     }
 
     stage('Test image') {
-        app.inside {
+        //app.inside {
             sh 'echo "Run tests..."'
-        }
+        //}
     }
 
-    stage('Push image') {
-		sh 'push image'
+    if(env.BRANCH_NAME == 'develop') {
+    	stage('Deploy image') {
+	  echo 'deploying develop to CD environment'
+	}
     }
 }
