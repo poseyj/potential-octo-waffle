@@ -1,3 +1,5 @@
+def packageVersion
+
 node {
     def app
     
@@ -27,7 +29,7 @@ node {
     def build = env.BUILD_NUMBER
 	
     println "major: ${major} minor: ${minor} build: ${build}"
-    def packageVersion = "${major}.${minor}.${build}"
+    packageVersion = "${major}.${minor}.${build}"
     if(env.BRANCH_NAME == 'develop') {
       packageVersion += "-" + env.BRANCH_NAME
     }
