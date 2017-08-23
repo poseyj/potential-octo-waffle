@@ -52,7 +52,8 @@ node {
 	println "running tests"
 	def result = sh "docker run --rm empower/test-build"
 	println "result ${result}"
-	    sh 'ls -als'
+	sh 'ls -als'
+	println "here"
         //app.inside {
         //  sh 'npm test'
         //}
