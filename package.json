@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha lib/**/**.spec.js"
+    "test": "mocha lib/**/**.spec.js",
+	"test-jenkins": "JUNIT_REPORT_PATH=./report.xml mocha lib/**/**.spec.js --colors --reporter mocha-jenkins-reporter"
   },
   "repository": {
     "type": "git",
@@ -18,7 +19,8 @@
   "homepage": "https://github.com/poseyj/potential-octo-waffle#readme",
   "devDependencies": {
     "chai": "^4.1.1",
-    "mocha": "^3.5.0"
+    "mocha": "^3.5.0",
+    "mocha-jenkins-reporter": "^0.3.8"
   },
   "dependencies": {
     "express": "^4.15.4",
